@@ -7,14 +7,12 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest]
-        build_type: [RelWithDebInfo]
-        ui: [gui]
-        scripting: [lua]
-        exclude:
-          - build_type: RelWithDebInfo
-            ui: gui
-          - build_type: RelWithDebInfo
-            scripting: lua
+        build_type: [Release]
+        enable_ui: [on]
+        include:
+          - os: windows-latest
+            build_type: Release
+            enable_ui: on
     steps:
     - uses: actions/checkout@v4
       with:
