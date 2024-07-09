@@ -8,11 +8,13 @@ jobs:
       matrix:
         os: [windows-latest]
         build_type: [Release]
-        enable_ui: [on]
-        include:
-          - os: windows-latest
-            build_type: Release
-            enable_ui: on
+        ui: [gui]
+        scripting: [lua]
+        exclude:
+          - build_type: Release
+            ui: gui
+          - build_type: Release
+            scripting: lua
     steps:
     - uses: actions/checkout@v4
       with:
